@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Set</title>
+
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+<body>
+
+	<div class="wrapper">
+	
+		<div class="header">
+
+			<div class="headerContent">
+
+				<div class="logoContainer">
+					<a href="/">
+                        <img src={{ url_for('static', filename='set.png') }}>
+					</a>
+				</div>
+
+				<div class="searchContainer">
+
+					<form action="/search/results" method="post">
+
+						<div class="searchBarContainer">
+
+							<input class="searchBox" type="text" name="input">
+							<button class="searchButton">
+                                    <img src={{ url_for('static', filename='icons/search.png') }}>
+							</button>
+						</div>
+
+					</form>
+
+				</div>
+
+            </div>
+            
+        </div>
+            
+        <div class="Results">
+
+                {% for hit in res%}
+    
+                    <div class="Result">
+                        <div class = "title_link">
+                            {{ hit['title']}}
+                        </div>
+                        <div class="url"> 
+                                <a href="{{ hit['url'] }}">{{ hit['url']}}
+                                    </a>
+                        </div>
+                        <div class = "text">
+                                {{ hit['first_sentence']}}
+                        </div>
+                    </div>
+    
+                            
+                {% endfor %}
+    
+                </ul>
+        </div>
+
+    </div>
+
+  </body>
+</html>
