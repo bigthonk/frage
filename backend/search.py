@@ -14,7 +14,7 @@ link2 = {
 
 links = [link1,link2]
 
-def search(search_term):
+def search(search_term:str):
     inverted_index = {}
     for link in links:
         for term in link.values():

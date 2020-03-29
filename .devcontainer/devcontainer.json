@@ -3,7 +3,7 @@
 {
 	"name": "Python 3",
 	"context": "..",
-	"dockerFile": "../Dockerfile",
+	"dockerFile": "../frontend/Dockerfile",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
@@ -20,7 +20,7 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000]
+	"forwardPorts": [5000,3000]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip install -r requirements.txt",

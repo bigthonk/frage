@@ -1,0 +1,24 @@
+version: '3'
+networks:
+    search-network:
+      driver: bridge
+
+services:
+    frage_backend:
+        build : 
+            context: backend
+        image: frage_backend:latest
+        container_name: frage_backend
+        ports:
+            - "3000:3000"
+        networks:
+            - search-network
+    frage_frontend:
+        build : 
+            context: frontend
+        image: frage_frontend:latest
+        container_name: frage_frontend
+        ports:
+            - "5000:5000"
+        networks:
+            - search-network
