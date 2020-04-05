@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Set</title>
+	<title>Frage</title>
 
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
 
@@ -8,14 +8,14 @@
 <body>
 
 	<div class="wrapper">
-	
+
 		<div class="header">
 
 			<div class="headerContent">
 
 				<div class="logoContainer">
 					<a href="/">
-                        <img src={{ url_for('static', filename='set.png') }}>
+                        <img src={{ url_for('static', filename='question.png') }}>
 					</a>
 				</div>
 
@@ -26,9 +26,10 @@
 						<div class="searchBarContainer">
 
 							<input class="searchBox" type="text" name="input">
-							<button class="searchButton">
-                                    <img src={{ url_for('static', filename='icons/search.png') }}>
-							</button>
+                            <select class="searchButton" name="search_type">
+                                <option value="list_search">List Search</option>
+                                <option value="inverted_index_search">Inverted Index Search</option>
+                            </select>
 						</div>
 
 					</form>
@@ -36,18 +37,18 @@
 				</div>
 
             </div>
-            
+
         </div>
-            
+
         <div class="Results">
 
                 {% for hit in res%}
-    
+
                     <div class="Result">
                         <div class = "title_link">
                             {{ hit['title']}}
                         </div>
-                        <div class="url"> 
+                        <div class="url">
                                 <a href="{{ hit['url'] }}">{{ hit['url']}}
                                     </a>
                         </div>
@@ -55,10 +56,10 @@
                                 {{ hit['first_sentence']}}
                         </div>
                     </div>
-    
-                            
+
+
                 {% endfor %}
-    
+
                 </ul>
         </div>
 

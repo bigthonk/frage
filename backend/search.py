@@ -1,27 +1,26 @@
-link1 = {
-    "url":"https://cvs.com",
-    "title":"cvs",
-    "about":"Local health spot",
-    "tags":"cvs, drugstore, cvs health"
-}
+class Search():
 
-link2 = {
-    "url":"https://reddit.com",
-    "title":"reddit",
-    "about":"Front page of the internet",
-    "tags":"liberal content, memes"
-}
+    def __init__(self, links):
+        self.links = links
+        self.inverted_index = self.build_index(links)
 
-links = [link1,link2]
+    def build_index(self,data):
+        inverted_index = {}
+        for entry in data:
+            for term in entry.values():
+                inverted_index[term]=entry
+        return inverted_index
 
-def search(search_term:str):
-    inverted_index = {}
-    for link in links:
-        for term in link.values():
-            print(term)
-            inverted_index[term]=link
-    results = [inverted_index[search_term]]
-    print(results)
-    return results
+    def inverted_index_search(self,search_term):
+        results = [self.inverted_index[search_term]]
+        return results
 
-
+    def list_search(self,search_term):
+        results = []
+        for data in self.links:
+            data_entries = set(data.values())
+            for entry in data_entries:
+                if search_term in entry:
+                    results = results = results + [data]
+                    break
+        return results
