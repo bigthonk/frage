@@ -1,6 +1,6 @@
 # frage
 
-Frage is an Open Search Engine
+**frage is an Open Search Engine**
 
 ## Project Goals
 
