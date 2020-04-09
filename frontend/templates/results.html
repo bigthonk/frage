@@ -41,8 +41,11 @@
         </div>
 
         <div class="Results">
+									<div class="time">
+											Found {{res[1]}} results in {{res[2]}} seconds
+									</div>
 
-                {% for hit in res%}
+                {% for hit in res[0]%}
 
                     <div class="Result">
                         <div class = "title_link">
