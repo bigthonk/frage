@@ -1,6 +1,7 @@
 from fastapi import FastAPI, File, HTTPException
 from starlette.requests import Request
 from search import Search
+import json
 
 link1 = {
     "url":"https://cvs.com",
@@ -17,6 +18,9 @@ link2 = {
 }
 
 links = [link1,link2]
+
+with open('movies.json') as json_file:
+    links = json.load(json_file)
 
 app = FastAPI()
 search = Search(links=links)

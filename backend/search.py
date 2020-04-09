@@ -12,8 +12,11 @@ class Search():
         return inverted_index
 
     def inverted_index_search(self,search_term):
-        results = [self.inverted_index[search_term]]
-        return results
+        try:
+            results = [self.inverted_index[search_term]]
+            return results
+        except:
+            return []
 
     def list_search(self,search_term):
         results = []
