@@ -20,8 +20,9 @@ def search_request():
     res = requests.get(backend_route+search_term).json()
     finish_time = time.time()
     elapsed_time = finish_time - start_time
+    results = [res,len(res),elapsed_time]
     logging.info("result : " + str(res))
-    return render_template('results.html', res=res )
+    return render_template('results.html', res=results )
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
