@@ -7,13 +7,18 @@ class Search():
     def build_index(self,data):
         inverted_index = {}
         for entry in data:
-            for term in entry.values():
-                inverted_index[term]=entry
+            title = entry['title'].split('(')[0]
+            title_words = title.split()
+            for word in title_words:
+                if word in inverted_index:
+                    inverted_index[word] = inverted_index[word] + [entry]
+                else :
+                    inverted_index[word]= [entry]
         return inverted_index
 
     def inverted_index_search(self,search_term):
         try:
-            results = [self.inverted_index[search_term]]
+            results = self.inverted_index[search_term]
             return results
         except:
             return []
