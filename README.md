@@ -1,5 +1,5 @@
 # frage
-![Landing](landing.png)
+![](landing.png)
 
 open source search engine
 
