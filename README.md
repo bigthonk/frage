@@ -1,5 +1,5 @@
 # frage
-![](landing.png)
+![](https://github.com/bigthonk/frage/blob/master/landing.png)
 
 open source search engine
 
