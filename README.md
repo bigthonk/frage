@@ -1,4 +1,5 @@
 # frage
+![Landing](landing.png)
 
 open source search engine
 
